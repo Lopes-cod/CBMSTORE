@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CBM Store</title>
+  <link rel="stylesheet" href="CBM.css">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1>CBM Store | SMARTWATCH</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Carrinho</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="capa">
+    <img src="img/capa.png" alt="" width="100%">
+  </div>
+
+  <h2>NOVIDADES</h2>
+    <section class="produtos">
+    <div class="produto" id="produto1">
+      <div class="carousel">
+        <img src="pulseira.jpeg" alt="Pulseira Elegante 1" class="active">
+        <img src="meialua.jpeg" alt="Pulseira Elegante 2">
+        <img src="relogio.jpeg" alt="Pulseira Elegante 3">
+      </div>
+      <h3>Pulseiras Elegantes</h3>
+      <p>Pulseiras de pulso moderno, com design sofisticado.</p>
+      <span>R$ 299,99</span>
+      <button onclick="adicionarCarrinho('Pulseiras Elegantes')">Adicionar ao Carrinho</button>
+    </div>
+
+    <div class="produto" id="produto2">
+      <div class="carousel">
+        <img src="pulseira.jpeg" alt="Pulseira Elegante 1" class="active">
+        <img src="meialua.jpeg" alt="Pulseira Elegante 2">
+        <img src="relogio.jpeg" alt="Pulseira Elegante 3">
+      </div>
+      <h3>Smartwatch z3</h3>
+      <p>Smartwatch 100% funcional,produto oficial</p>
+      <span>R$ 199,99</span>
+      <button onclick="adicionarCarrinho('Smartwatch')">Adicionar ao Carrinho</button>
+    </div>
+
+    <div class="produto" id="produto3">
+      <div class="carousel">
+        <img src="https://lojaiwill.com.br/arquivos/produtos/imagens_adicionais/1770-preto-5-506.jpg" alt="Pulseira Elegante 1" class="active">
+        <img src="meialua.jpeg" alt="Pulseira Elegante 2">
+        <img src="relogio.jpeg" alt="Pulseira Elegante 3">
+      </div>
+      <h3>Citizen- Meia Lua produto oficial</h3>
+      <p>Citizen- Meia Lua</p>
+      <span>R$ 79,99</span>
+      <button onclick="adicionarCarrinho('Citizen- Meia Lua')">Adicionar ao Carrinho</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 CBM | Smartwatch - Qualidade e confiança.</p>
+  </footer>
+
+  <script>
+
+    let carrinho = [];
+
+    function adicionarCarrinho(produto) {
+      carrinho.push(produto);
+      alert(`${produto} foi adicionado ao carrinho!`);
+      console.log("Carrinho:", carrinho); // Para depuração
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const carousels = document.querySelectorAll('.carousel');
+
+  carousels.forEach((carousel) => {
+    let currentIndex = 0;
+    const images = carousel.querySelectorAll('img');
+
+    setInterval(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length; // Próxima imagem
+      images[currentIndex].classList.add('active');
+    }, 3000); // Tempo de transição: 3 segundos
+  });
+});
+  </script>
+</body>
+
+</html>
